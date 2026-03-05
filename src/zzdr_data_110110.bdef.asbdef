@@ -1,0 +1,53 @@
+managed implementation in class ZZDBP_R_DATA_110110 unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZZDR_DATA_110110 alias ZzdrData110110
+persistent table ZDATA__110
+extensible
+draft table ZZDDATA_110_D110
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master( global )
+{
+  field ( readonly )
+   BookingUUID,
+   LocalCreatedBy,
+   LocalCreatedAt,
+   LocalLastChangedBy,
+   LocalLastChangedAt,
+   LastChangedAt;
+
+  field ( numbering : managed )
+   BookingUUID;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZDATA__110 corresponding extensible
+  {
+    BookingUUID = BOOKING_UUID;
+    CustomerName = CUSTOMER_NAME;
+    PickupLocation = PICKUP_LOCATION;
+    DropLocation = DROP_LOCATION;
+    DriverID = DRIVER_ID;
+    VehicleNumber = VEHICLE_NUMBER;
+    Status = STATUS;
+    BookingDate = BOOKING_DATE;
+    FareAmount = FARE_AMOUNT;
+    LocalCreatedBy = LOCAL_CREATED_BY;
+    LocalCreatedAt = LOCAL_CREATED_AT;
+    LocalLastChangedBy = LOCAL_LAST_CHANGED_BY;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+    LastChangedAt = LAST_CHANGED_AT;
+  }
+
+}

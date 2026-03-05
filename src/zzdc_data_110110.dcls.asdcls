@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZZDC_DATA_110110'
+@MappingRole: true
+define role ZZDC_DATA_110110 {
+  grant select on ZZDC_DATA_110110
+  where INHERITING CONDITIONS FROM ENTITY ZZDR_DATA_110110 REPLACING { ROOT WITH _BaseEntity };
+}

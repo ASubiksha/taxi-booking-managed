@@ -1,0 +1,11 @@
+@EndUserText: {
+  label: 'Service Definition for ZZDC_DATA_110110'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZZDC_DATA_110110'
+  }
+}
+define service ZZDUI_DATA_110_O4110 provider contracts odata_v4_ui {
+  expose ZZDC_DATA_110110;
+}
